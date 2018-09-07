@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAhAAAABAEAAAgIAIAAAA=</HashCode>
+      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.ProductInformation">
+    <Position X="4.5" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIBJAIgDCAAgCAgIAaAAAACAkhAAQACkIIASAAKACFA=</HashCode>
+      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.RelatedProduct">
+    <Position X="9.25" Y="0.5" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIABAAACAAAoAAAAAAAAAAAAgAAAQAAEAAAAAAKAAAA=</HashCode>
+      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.IntermediatePack">
+    <Position X="9.25" Y="3.5" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABAAACAQAAAAAABAAAIAAAgAEAAAAEAAAAAAKAAAA=</HashCode>
+      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.PromotionInformation">
+    <Position X="0.5" Y="3.25" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Events" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAEAAACAAAgAAARAAAACACggBAAAAAEACIAEEIACAA=</HashCode>
+      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

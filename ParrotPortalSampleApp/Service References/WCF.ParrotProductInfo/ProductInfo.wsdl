@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductInfo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WindowsHttpEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" />
+      <xs:element name="GetProductInfoForCustomerForMultipleProducts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StockCodes" nillable="true" type="q1:ArrayOfstring" />
+            <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="PricingDate" nillable="true" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="ChannelID" nillable="true" type="xs:int" />
+            <xs:element minOccurs="0" name="PromoMinQuantity" type="xs:int" />
+            <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="GetSuspendedProducts" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductInfoForCustomerForMultipleProductsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" minOccurs="0" name="GetProductInfoForCustomerForMultipleProductsResult" nillable="true" type="q2:PortalResultOfArrayOfProductInformationAmSG9_SwV" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductInfoForCustomerForMultipleProductsUsingDefaults">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StockCodes" nillable="true" type="q3:ArrayOfstring" />
+            <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="GetSuspendedProducts" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" minOccurs="0" name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsResult" nillable="true" type="q4:PortalResultOfArrayOfProductInformationAmSG9_SwV" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StockCodes" nillable="true" type="q5:ArrayOfstring" />
+            <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="GetSuspendedProducts" type="xs:boolean" />
+            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="WarehouseCodes" nillable="true" type="q6:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" minOccurs="0" name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockResult" nillable="true" type="q7:PortalResultOfArrayOfProductInformationAmSG9_SwV" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetWarehouseInfo">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetWarehouseInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" minOccurs="0" name="GetWarehouseInfoResult" nillable="true" type="q8:PortalResultOfArrayOfPortalWarehouseAmSG9_SwV" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsConnectionUp">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="IsConnectionUpResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IsConnectionUpResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" />
+      <xs:complexType name="PortalResultOfArrayOfProductInformationAmSG9_SwV">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="PortalResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfProductInformation" Namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" minOccurs="0" name="Data" nillable="true" type="q1:ArrayOfProductInformation" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PortalResultOfArrayOfProductInformationAmSG9_SwV" nillable="true" type="tns:PortalResultOfArrayOfProductInformationAmSG9_SwV" />
+      <xs:complexType name="PortalResultOfArrayOfPortalWarehouseAmSG9_SwV">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="PortalResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.Common" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="ArrayOfPortalWarehouse" Namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" minOccurs="0" name="Data" nillable="true" type="q2:ArrayOfPortalWarehouse" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PortalResultOfArrayOfPortalWarehouseAmSG9_SwV" nillable="true" type="tns:PortalResultOfArrayOfPortalWarehouseAmSG9_SwV" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/SharedTypes" />
+      <xs:complexType name="ArrayOfProductInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductInformation" nillable="true" type="tns:ProductInformation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProductInformation" nillable="true" type="tns:ArrayOfProductInformation" />
+      <xs:complexType name="ProductInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlternativeProducts" nillable="true" type="tns:ArrayOfRelatedProduct" />
+          <xs:element minOccurs="0" name="CustomerPrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CustomerPriceWithTax" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CustomerTaxAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DetailedDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FuturePrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IntermediatePacks" nillable="true" type="tns:ArrayOfIntermediatePack" />
+          <xs:element minOccurs="0" name="KitItems" nillable="true" type="tns:ArrayOfRelatedProduct" />
+          <xs:element minOccurs="0" name="ProductBarCode" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductDocumentLinks" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductImageLinks" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="PromotionInfo" nillable="true" type="tns:PromotionInformation" />
+          <xs:element minOccurs="0" name="RetailPrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StockCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StockID" type="xs:int" />
+          <xs:element minOccurs="0" name="WarehouseStockLevels" nillable="true" type="tns:ArrayOfPortalWarehouseStockLevel" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ProductInformation" nillable="true" type="tns:ProductInformation" />
+      <xs:complexType name="ArrayOfRelatedProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RelatedProduct" nillable="true" type="tns:RelatedProduct" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfRelatedProduct" nillable="true" type="tns:ArrayOfRelatedProduct" />
+      <xs:complexType name="RelatedProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RelatedStockCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StockCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RelatedProduct" nillable="true" type="tns:RelatedProduct" />
+      <xs:complexType name="ArrayOfIntermediatePack">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IntermediatePack" nillable="true" type="tns:IntermediatePack" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIntermediatePack" nillable="true" type="tns:ArrayOfIntermediatePack" />
+      <xs:complexType name="IntermediatePack">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PackBarCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PackQTY" type="xs:int" />
+          <xs:element minOccurs="0" name="StockCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IntermediatePack" nillable="true" type="tns:IntermediatePack" />
+      <xs:complexType name="PromotionInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SharedTypes" minOccurs="0" name="PromoType" type="q3:PromotionType" />
+          <xs:element minOccurs="0" name="RequiredMinQuantity" type="xs:int" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StockID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PromotionInformation" nillable="true" type="tns:PromotionInformation" />
+      <xs:complexType name="ArrayOfPortalWarehouseStockLevel">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PortalWarehouseStockLevel" nillable="true" type="tns:PortalWarehouseStockLevel" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPortalWarehouseStockLevel" nillable="true" type="tns:ArrayOfPortalWarehouseStockLevel" />
+      <xs:complexType name="PortalWarehouseStockLevel">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:PortalWarehouse">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Amount" type="xs:int" />
+              <xs:element minOccurs="0" name="StockCode" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="PortalWarehouseStockLevel" nillable="true" type="tns:PortalWarehouseStockLevel" />
+      <xs:complexType name="PortalWarehouse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="WarehouseCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WarehouseDescription" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PortalWarehouse" nillable="true" type="tns:PortalWarehouse" />
+      <xs:complexType name="ArrayOfPortalWarehouse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PortalWarehouse" nillable="true" type="tns:PortalWarehouse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfPortalWarehouse" nillable="true" type="tns:ArrayOfPortalWarehouse" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SharedTypes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SharedTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="PromotionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="psAdditionalPercentage" />
+          <xs:enumeration value="psFixedPrice" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="PromotionType" nillable="true" type="tns:PromotionType" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IProductInfo_GetProductInfoForCustomerForMultipleProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductInfoForCustomerForMultipleProducts" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_GetProductInfoForCustomerForMultipleProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductInfoForCustomerForMultipleProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaults_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductInfoForCustomerForMultipleProductsUsingDefaults" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaults_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductInfoForCustomerForMultipleProductsUsingDefaultsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_GetWarehouseInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseInfo" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_GetWarehouseInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWarehouseInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_IsConnectionUp_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnectionUp" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfo_IsConnectionUp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsConnectionUpResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProductInfo">
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts" message="tns:IProductInfo_GetProductInfoForCustomerForMultipleProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsResponse" message="tns:IProductInfo_GetProductInfoForCustomerForMultipleProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaults">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaults" message="tns:IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaults_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaultsResponse" message="tns:IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaults_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock" message="tns:IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockResponse" message="tns:IProductInfo_GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductInfo/GetWarehouseInfo" message="tns:IProductInfo_GetWarehouseInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductInfo/GetWarehouseInfoResponse" message="tns:IProductInfo_GetWarehouseInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsConnectionUp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductInfo/IsConnectionUp" message="tns:IProductInfo_IsConnectionUp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductInfo/IsConnectionUpResponse" message="tns:IProductInfo_IsConnectionUp_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpEndpoint" type="tns:IProductInfo">
+    <wsp:PolicyReference URI="#BasicHttpEndpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProducts">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaults">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetWarehouseInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsConnectionUp">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/IsConnectionUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WindowsHttpEndpoint" type="tns:IProductInfo">
+    <wsp:PolicyReference URI="#WindowsHttpEndpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProducts">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaults">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetWarehouseInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsConnectionUp">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/IsConnectionUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductInfo">
+    <wsdl:port name="BasicHttpEndpoint" binding="tns:BasicHttpEndpoint">
+      <soap:address location="http://localhost/Portal/ProductInfo.svc/basic" />
+    </wsdl:port>
+    <wsdl:port name="WindowsHttpEndpoint" binding="tns:WindowsHttpEndpoint">
+      <soap:address location="http://localhost/Portal/ProductInfo.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
