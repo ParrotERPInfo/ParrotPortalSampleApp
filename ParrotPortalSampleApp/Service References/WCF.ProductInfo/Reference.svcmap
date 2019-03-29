@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="03fcce56-f1c1-4780-94e0-8a2e46e683a4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b36cec76-fe01-49be-a9ef-f04be078eb89" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -21,10 +21,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/Portal/ProductInfo.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://accounts.parrotproducts.biz/Portal/ProductInfo.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ProductInfo.wsdl" MetadataType="Wsdl" ID="dd98489d-8d2b-4a65-8f52-c9f3efcb1e77" SourceId="1" SourceUrl="http://localhost/Portal/ProductInfo.svc?singleWsdl" />
+    <MetadataFile FileName="ProductInfo.wsdl" MetadataType="Wsdl" ID="f4c1f4d5-256e-4b5f-8666-a2b75ea61d9a" SourceId="1" SourceUrl="https://accounts.parrotproducts.biz/Portal/ProductInfo.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

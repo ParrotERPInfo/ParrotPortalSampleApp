@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
+namespace ParrotPortalSampleApp.WCF.ProductInfo {
     using System.Runtime.Serialization;
     using System;
     
@@ -23,7 +23,10 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.ProductInformation> DataField;
+        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.ProductInformation> DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ErrorOccurredField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
@@ -39,7 +42,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.ProductInformation> Data {
+        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.ProductInformation> Data {
             get {
                 return this.DataField;
             }
@@ -47,6 +50,19 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
                 if ((object.ReferenceEquals(this.DataField, value) != true)) {
                     this.DataField = value;
                     this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ErrorOccurred {
+            get {
+                return this.ErrorOccurredField;
+            }
+            set {
+                if ((this.ErrorOccurredField.Equals(value) != true)) {
+                    this.ErrorOccurredField = value;
+                    this.RaisePropertyChanged("ErrorOccurred");
                 }
             }
         }
@@ -84,7 +100,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.RelatedProduct> AlternativeProductsField;
+        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.RelatedProduct> AlternativeProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal CustomerPriceField;
@@ -105,10 +121,13 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         private System.Nullable<decimal> FuturePriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.IntermediatePack> IntermediatePacksField;
+        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.IntermediatePack> IntermediatePacksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.RelatedProduct> KitItemsField;
+        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.RelatedProduct> KitItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MainProductImageLinkField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ProductBarCodeField;
@@ -120,7 +139,10 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         private System.Collections.Generic.List<string> ProductImageLinksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ParrotPortalSampleApp.WCF.ParrotProductInfo.PromotionInformation PromotionInfoField;
+        private ParrotPortalSampleApp.WCF.ProductInfo.PromotionInformation PromotionInfoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ParrotPortalSampleApp.WCF.ProductInfo.PortalPublishingCategory PublishingCategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal RetailPriceField;
@@ -132,7 +154,10 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         private int StockIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalWarehouseStockLevel> WarehouseStockLevelsField;
+        private int TotalWarehouseStockField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouseStockLevel> WarehouseStockLevelsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -145,7 +170,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.RelatedProduct> AlternativeProducts {
+        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.RelatedProduct> AlternativeProducts {
             get {
                 return this.AlternativeProductsField;
             }
@@ -236,7 +261,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.IntermediatePack> IntermediatePacks {
+        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.IntermediatePack> IntermediatePacks {
             get {
                 return this.IntermediatePacksField;
             }
@@ -249,7 +274,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.RelatedProduct> KitItems {
+        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.RelatedProduct> KitItems {
             get {
                 return this.KitItemsField;
             }
@@ -257,6 +282,19 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
                 if ((object.ReferenceEquals(this.KitItemsField, value) != true)) {
                     this.KitItemsField = value;
                     this.RaisePropertyChanged("KitItems");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MainProductImageLink {
+            get {
+                return this.MainProductImageLinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MainProductImageLinkField, value) != true)) {
+                    this.MainProductImageLinkField = value;
+                    this.RaisePropertyChanged("MainProductImageLink");
                 }
             }
         }
@@ -301,7 +339,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ParrotPortalSampleApp.WCF.ParrotProductInfo.PromotionInformation PromotionInfo {
+        public ParrotPortalSampleApp.WCF.ProductInfo.PromotionInformation PromotionInfo {
             get {
                 return this.PromotionInfoField;
             }
@@ -309,6 +347,19 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
                 if ((object.ReferenceEquals(this.PromotionInfoField, value) != true)) {
                     this.PromotionInfoField = value;
                     this.RaisePropertyChanged("PromotionInfo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ParrotPortalSampleApp.WCF.ProductInfo.PortalPublishingCategory PublishingCategory {
+            get {
+                return this.PublishingCategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PublishingCategoryField, value) != true)) {
+                    this.PublishingCategoryField = value;
+                    this.RaisePropertyChanged("PublishingCategory");
                 }
             }
         }
@@ -353,7 +404,20 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalWarehouseStockLevel> WarehouseStockLevels {
+        public int TotalWarehouseStock {
+            get {
+                return this.TotalWarehouseStockField;
+            }
+            set {
+                if ((this.TotalWarehouseStockField.Equals(value) != true)) {
+                    this.TotalWarehouseStockField = value;
+                    this.RaisePropertyChanged("TotalWarehouseStock");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouseStockLevel> WarehouseStockLevels {
             get {
                 return this.WarehouseStockLevelsField;
             }
@@ -394,7 +458,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         private System.DateTime EndDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ParrotPortalSampleApp.WCF.ParrotProductInfo.PromotionType PromoTypeField;
+        private ParrotPortalSampleApp.WCF.ProductInfo.PromotionType PromoTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RequiredMinQuantityField;
@@ -455,7 +519,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ParrotPortalSampleApp.WCF.ParrotProductInfo.PromotionType PromoType {
+        public ParrotPortalSampleApp.WCF.ProductInfo.PromotionType PromoType {
             get {
                 return this.PromoTypeField;
             }
@@ -502,6 +566,67 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
                 if ((this.StockIDField.Equals(value) != true)) {
                     this.StockIDField = value;
                     this.RaisePropertyChanged("StockID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PortalPublishingCategory", Namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo")]
+    [System.SerializableAttribute()]
+    public partial class PortalPublishingCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CategoryIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CategoryID {
+            get {
+                return this.CategoryIDField;
+            }
+            set {
+                if ((this.CategoryIDField.Equals(value) != true)) {
+                    this.CategoryIDField = value;
+                    this.RaisePropertyChanged("CategoryID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryName {
+            get {
+                return this.CategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
                 }
             }
         }
@@ -674,7 +799,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PortalWarehouseStockLevel", Namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo")]
     [System.SerializableAttribute()]
-    public partial class PortalWarehouseStockLevel : ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalWarehouse {
+    public partial class PortalWarehouseStockLevel : ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouse {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int AmountField;
@@ -724,7 +849,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PortalWarehouse", Namespace="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalWarehouseStockLevel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouseStockLevel))]
     public partial class PortalWarehouse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -792,7 +917,10 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalWarehouse> DataField;
+        private System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouse> DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ErrorOccurredField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MessageField;
@@ -808,7 +936,7 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalWarehouse> Data {
+        public System.Collections.Generic.List<ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouse> Data {
             get {
                 return this.DataField;
             }
@@ -816,6 +944,19 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
                 if ((object.ReferenceEquals(this.DataField, value) != true)) {
                     this.DataField = value;
                     this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ErrorOccurred {
+            get {
+                return this.ErrorOccurredField;
+            }
+            set {
+                if ((this.ErrorOccurredField.Equals(value) != true)) {
+                    this.ErrorOccurredField = value;
+                    this.RaisePropertyChanged("ErrorOccurred");
                 }
             }
         }
@@ -844,42 +985,42 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCF.ParrotProductInfo.IProductInfo")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCF.ProductInfo.IProductInfo")]
     public interface IProductInfo {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts", ReplyAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsRespo" +
             "nse")]
-        ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProducts(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts);
+        ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProducts(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts", ReplyAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsRespo" +
             "nse")]
-        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts);
+        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "Defaults", ReplyAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "DefaultsResponse")]
-        ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaults(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts);
+        ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaults(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "Defaults", ReplyAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "DefaultsResponse")]
-        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts);
+        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "DefaultsWithWarehouseStock", ReplyAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "DefaultsWithWarehouseStockResponse")]
-        ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes);
+        ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "DefaultsWithWarehouseStock", ReplyAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsing" +
             "DefaultsWithWarehouseStockResponse")]
-        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes);
+        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetWarehouseInfo", ReplyAction="http://tempuri.org/IProductInfo/GetWarehouseInfoResponse")]
-        ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV GetWarehouseInfo();
+        ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV GetWarehouseInfo();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/GetWarehouseInfo", ReplyAction="http://tempuri.org/IProductInfo/GetWarehouseInfoResponse")]
-        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV> GetWarehouseInfoAsync();
+        System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV> GetWarehouseInfoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductInfo/IsConnectionUp", ReplyAction="http://tempuri.org/IProductInfo/IsConnectionUpResponse")]
         bool IsConnectionUp();
@@ -889,12 +1030,12 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IProductInfoChannel : ParrotPortalSampleApp.WCF.ParrotProductInfo.IProductInfo, System.ServiceModel.IClientChannel {
+    public interface IProductInfoChannel : ParrotPortalSampleApp.WCF.ProductInfo.IProductInfo, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ProductInfoClient : System.ServiceModel.ClientBase<ParrotPortalSampleApp.WCF.ParrotProductInfo.IProductInfo>, ParrotPortalSampleApp.WCF.ParrotProductInfo.IProductInfo {
+    public partial class ProductInfoClient : System.ServiceModel.ClientBase<ParrotPortalSampleApp.WCF.ProductInfo.IProductInfo>, ParrotPortalSampleApp.WCF.ProductInfo.IProductInfo {
         
         public ProductInfoClient() {
         }
@@ -915,35 +1056,35 @@ namespace ParrotPortalSampleApp.WCF.ParrotProductInfo {
                 base(binding, remoteAddress) {
         }
         
-        public ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProducts(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts) {
+        public ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProducts(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts) {
             return base.Channel.GetProductInfoForCustomerForMultipleProducts(StockCodes, CustomerCode, PricingDate, ChannelID, PromoMinQuantity, Password, GetSuspendedProducts);
         }
         
-        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts) {
+        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, System.Nullable<System.DateTime> PricingDate, System.Nullable<int> ChannelID, int PromoMinQuantity, string Password, bool GetSuspendedProducts) {
             return base.Channel.GetProductInfoForCustomerForMultipleProductsAsync(StockCodes, CustomerCode, PricingDate, ChannelID, PromoMinQuantity, Password, GetSuspendedProducts);
         }
         
-        public ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaults(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts) {
+        public ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaults(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts) {
             return base.Channel.GetProductInfoForCustomerForMultipleProductsUsingDefaults(StockCodes, CustomerCode, Password, GetSuspendedProducts);
         }
         
-        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts) {
+        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts) {
             return base.Channel.GetProductInfoForCustomerForMultipleProductsUsingDefaultsAsync(StockCodes, CustomerCode, Password, GetSuspendedProducts);
         }
         
-        public ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes) {
+        public ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes) {
             return base.Channel.GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock(StockCodes, CustomerCode, Password, GetSuspendedProducts, WarehouseCodes);
         }
         
-        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes) {
+        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV> GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockAsync(System.Collections.Generic.List<string> StockCodes, string CustomerCode, string Password, bool GetSuspendedProducts, System.Collections.Generic.List<string> WarehouseCodes) {
             return base.Channel.GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStockAsync(StockCodes, CustomerCode, Password, GetSuspendedProducts, WarehouseCodes);
         }
         
-        public ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV GetWarehouseInfo() {
+        public ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV GetWarehouseInfo() {
             return base.Channel.GetWarehouseInfo();
         }
         
-        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV> GetWarehouseInfoAsync() {
+        public System.Threading.Tasks.Task<ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV> GetWarehouseInfoAsync() {
             return base.Channel.GetWarehouseInfoAsync();
         }
         

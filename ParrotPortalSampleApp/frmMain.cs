@@ -1,8 +1,8 @@
-﻿using System;
+﻿using ParrotPortalSampleApp.WCF.ProductInfo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using ParrotPortalSampleApp.WCF.ParrotProductInfo;
 
 namespace ParrotPortalSampleApp
 {
@@ -27,13 +27,14 @@ namespace ParrotPortalSampleApp
             m_BindingList = null;
             dtgvProducts.DataSource = null;
             pbProductImage.Visible = false;
-
             //customer code prompt
-            var enterCode = new frmEnterCustomerCode();
-            enterCode.FormBorderStyle = FormBorderStyle.FixedSingle;
-            enterCode.MinimizeBox = false;
-            enterCode.MaximizeBox = false;
-            enterCode.StartPosition = FormStartPosition.CenterParent;
+            var enterCode = new frmEnterCustomerCode
+            {
+                FormBorderStyle = FormBorderStyle.FixedSingle,
+                MinimizeBox = false,
+                MaximizeBox = false,
+                StartPosition = FormStartPosition.CenterParent
+            };
             var dailogResult = enterCode.ShowDialog();
 
             if (string.IsNullOrWhiteSpace(enterCode.CustomerCode) & dailogResult == DialogResult.OK)
@@ -47,10 +48,8 @@ namespace ParrotPortalSampleApp
                 return;
             }
 
-
             Cursor = Cursors.WaitCursor;
             PortalResultOfArrayOfProductInformationAmSG9_SwV result = ParrotPortal.TryConnectAndReturnProducts(txtUsername.Text, txtPassword.Text, txtPortalPass.Text, enterCode.CustomerCode);
-
             //get the data object (which is a list of Product Information) and bind it to the DataGridView
             if (result.Data?.Count > 0)
             {
@@ -62,7 +61,6 @@ namespace ParrotPortalSampleApp
                 MessageBox.Show(result.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Cursor = Cursors.Default;
-
             //select first row so image loads
             if (m_BindingList?.Count > 0)
             {

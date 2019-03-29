@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="PortalResultOfArrayOfPortalWarehouseAmSG9_SwV" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV, Service References.WCF.ParrotProductInfo.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV, Service References.WCF.ProductInfo.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

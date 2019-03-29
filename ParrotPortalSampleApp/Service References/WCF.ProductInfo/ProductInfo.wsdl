@@ -1,16 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductInfo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="BasicHttpEndpoint_policy">
+  <wsp:Policy wsu:Id="WindowsHttpEndPoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpEndPoint_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WindowsHttpEndpoint_policy">
+  <wsp:Policy wsu:Id="BasicHttpEndPoint1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <http:BasicAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BasicHttpEndPoint2_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <http:NegotiateAuthentication xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
@@ -159,6 +211,7 @@
         </xs:annotation>
         <xs:sequence>
           <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" minOccurs="0" name="Data" nillable="true" type="q1:ArrayOfProductInformation" />
+          <xs:element minOccurs="0" name="ErrorOccurred" type="xs:boolean" />
           <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -173,6 +226,7 @@
         </xs:annotation>
         <xs:sequence>
           <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CommonDataDefinitions.Portal.ProductInfo" minOccurs="0" name="Data" nillable="true" type="q2:ArrayOfPortalWarehouse" />
+          <xs:element minOccurs="0" name="ErrorOccurred" type="xs:boolean" />
           <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
@@ -198,13 +252,16 @@
           <xs:element minOccurs="0" name="FuturePrice" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="IntermediatePacks" nillable="true" type="tns:ArrayOfIntermediatePack" />
           <xs:element minOccurs="0" name="KitItems" nillable="true" type="tns:ArrayOfRelatedProduct" />
+          <xs:element minOccurs="0" name="MainProductImageLink" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ProductBarCode" nillable="true" type="xs:string" />
           <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductDocumentLinks" nillable="true" type="q1:ArrayOfstring" />
           <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductImageLinks" nillable="true" type="q2:ArrayOfstring" />
           <xs:element minOccurs="0" name="PromotionInfo" nillable="true" type="tns:PromotionInformation" />
+          <xs:element minOccurs="0" name="PublishingCategory" nillable="true" type="tns:PortalPublishingCategory" />
           <xs:element minOccurs="0" name="RetailPrice" type="xs:decimal" />
           <xs:element minOccurs="0" name="StockCode" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="StockID" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalWarehouseStock" type="xs:int" />
           <xs:element minOccurs="0" name="WarehouseStockLevels" nillable="true" type="tns:ArrayOfPortalWarehouseStockLevel" />
         </xs:sequence>
       </xs:complexType>
@@ -249,6 +306,13 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="PromotionInformation" nillable="true" type="tns:PromotionInformation" />
+      <xs:complexType name="PortalPublishingCategory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+          <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PortalPublishingCategory" nillable="true" type="tns:PortalPublishingCategory" />
       <xs:complexType name="ArrayOfPortalWarehouseStockLevel">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="PortalWarehouseStockLevel" nillable="true" type="tns:PortalWarehouseStockLevel" />
@@ -342,8 +406,8 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IProductInfo/IsConnectionUpResponse" message="tns:IProductInfo_IsConnectionUp_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpEndpoint" type="tns:IProductInfo">
-    <wsp:PolicyReference URI="#BasicHttpEndpoint_policy" />
+  <wsdl:binding name="WindowsHttpEndPoint" type="tns:IProductInfo">
+    <wsp:PolicyReference URI="#WindowsHttpEndPoint_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProductInfoForCustomerForMultipleProducts">
       <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts" style="document" />
@@ -391,8 +455,106 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="WindowsHttpEndpoint" type="tns:IProductInfo">
-    <wsp:PolicyReference URI="#WindowsHttpEndpoint_policy" />
+  <wsdl:binding name="BasicHttpEndPoint" type="tns:IProductInfo">
+    <wsp:PolicyReference URI="#BasicHttpEndPoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProducts">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaults">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetWarehouseInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsConnectionUp">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/IsConnectionUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpEndPoint1" type="tns:IProductInfo">
+    <wsp:PolicyReference URI="#BasicHttpEndPoint1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProducts">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaults">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaults" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProductsUsingDefaultsWithWarehouseStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/GetWarehouseInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsConnectionUp">
+      <soap:operation soapAction="http://tempuri.org/IProductInfo/IsConnectionUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpEndPoint2" type="tns:IProductInfo">
+    <wsp:PolicyReference URI="#BasicHttpEndPoint2_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProductInfoForCustomerForMultipleProducts">
       <soap:operation soapAction="http://tempuri.org/IProductInfo/GetProductInfoForCustomerForMultipleProducts" style="document" />
@@ -441,11 +603,17 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ProductInfo">
-    <wsdl:port name="BasicHttpEndpoint" binding="tns:BasicHttpEndpoint">
-      <soap:address location="http://localhost/Portal/ProductInfo.svc/basic" />
+    <wsdl:port name="WindowsHttpEndPoint" binding="tns:WindowsHttpEndPoint">
+      <soap:address location="http://jhb-accountsrv.parrotproducts.biz/Portal/ProductInfo.svc" />
     </wsdl:port>
-    <wsdl:port name="WindowsHttpEndpoint" binding="tns:WindowsHttpEndpoint">
-      <soap:address location="http://localhost/Portal/ProductInfo.svc" />
+    <wsdl:port name="BasicHttpEndPoint" binding="tns:BasicHttpEndPoint">
+      <soap:address location="http://jhb-accountsrv.parrotproducts.biz/Portal/ProductInfo.svc/basic" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpEndPoint1" binding="tns:BasicHttpEndPoint1">
+      <soap:address location="https://accounts.parrotproducts.biz/Portal/ProductInfo.svc/basic" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpEndPoint2" binding="tns:BasicHttpEndPoint2">
+      <soap:address location="https://accounts.parrotproducts.biz/Portal/ProductInfo.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

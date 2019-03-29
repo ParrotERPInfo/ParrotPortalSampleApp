@@ -63,7 +63,7 @@
     <Compile Include="ParrotPortal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\WCF.ParrotProductInfo\Reference.cs">
+    <Compile Include="Service References\WCF.ProductInfo\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -93,12 +93,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\WCF.ParrotProductInfo\ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV1.datasource">
+    <None Include="Service References\WCF.ProductInfo\ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfPortalWarehouseAmSG9_SwV.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\WCF.ParrotProductInfo\ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV.datasource">
+    <None Include="Service References\WCF.ProductInfo\ParrotPortalSampleApp.WCF.ProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WCF.ProductInfo\ProductInfo.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -109,24 +110,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WCF.ParrotProductInfo\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCF.ParrotProductInfo\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCF.ParrotProductInfo\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WCF.ParrotProductInfo\ProductInfo.wsdl" />
-    <None Include="Service References\WCF.ParrotProductInfo\Reference.svcmap">
+    <Content Include="License.txt" />
+    <Content Include="Readme.txt" />
+    <None Include="Service References\WCF.ProductInfo\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\WCF.ProductInfo\configuration.svcinfo" />
+    <None Include="Service References\WCF.ProductInfo\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="License.txt" />
-    <Content Include="Readme.txt" />
+    <WCFMetadataStorage Include="Service References\WCF.ProductInfo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

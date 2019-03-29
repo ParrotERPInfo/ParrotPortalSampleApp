@@ -1,13 +1,13 @@
-﻿using System;
-using ParrotPortalSampleApp.WCF.ParrotProductInfo;
-using System.ServiceModel;
+﻿using ParrotPortalSampleApp.WCF.ProductInfo;
+using System;
 using System.Configuration;
+using System.ServiceModel;
 
 namespace ParrotPortalSampleApp
 {
 
     /// <summary>
-    /// Handles attempting to connect to the Parrot Portal and return Product results.
+    /// Global class which handles attempting to connect to the Parrot Portal and return Product results.
     /// </summary>
     internal static class ParrotPortal
     {
@@ -19,11 +19,8 @@ namespace ParrotPortalSampleApp
         {
             get
             {
-                if (bool.Parse(ConfigurationManager.AppSettings["IsDevMode"]))
-                {
-                    return "http://localhost/Portal/ProductInfo.svc/basic";
-                }
-                return "http://accounts.parrotproducts.biz/Portal/ProductInfo.svc/basic";
+                if (bool.Parse(ConfigurationManager.AppSettings["IsDevMode"])) return "https://localhost/Portal/ProductInfo.svc/basic";
+                return "https://accounts.parrotproducts.biz/Portal/ProductInfo.svc/basic";
             }
         }
 
@@ -38,26 +35,37 @@ namespace ParrotPortalSampleApp
         public static PortalResultOfArrayOfProductInformationAmSG9_SwV TryConnectAndReturnProducts(string UserName, string Password, string PortalPassword, string CustomerCode)
         {
             var endPointAddress = new EndpointAddress(ServerUrl);
-            var endpointConfigurationName = "BasicHttpEndpoint";
-
-            var client = new ProductInfoClient(endpointConfigurationName, endPointAddress);
-
+            var client = new ProductInfoClient(CreateServiceBinding(), endPointAddress);
             //if portal password's null use same password as the user password
             if (string.IsNullOrWhiteSpace(PortalPassword)) PortalPassword = Password;
 
             client.ClientCredentials.UserName.UserName = UserName;
             client.ClientCredentials.UserName.Password = Password;
-           
-            try //call the web service
+            try //call the web service, fetching all products
             {
-                //all products
-                var result = client.GetProductInfoForCustomerForMultipleProductsUsingDefaults(null, CustomerCode, PortalPassword, false);
+                var result =  client.GetProductInfoForCustomerForMultipleProductsUsingDefaults(null, CustomerCode, PortalPassword, false);
                 return result;
             }
             catch (Exception ex)
             {
                 return new PortalResultOfArrayOfProductInformationAmSG9_SwV() { Message = ex.Message } ;
             }
+        }
+
+        /// <summary>
+        /// Creates a HTTPS <see cref="BasicHttpBinding"/> to call the Product Info Service with.
+        /// </summary>
+        private static BasicHttpBinding CreateServiceBinding()
+        {
+            //set SecurityMode to 'Transport' (HTTPS)
+            var binding = new BasicHttpBinding(BasicHttpSecurityMode.Transport) //set binding buffers to Maximum and tranpsort security to Basic
+            {
+                MaxBufferSize = int.MaxValue,
+                MaxBufferPoolSize = int.MaxValue,
+                MaxReceivedMessageSize = int.MaxValue
+            };
+            binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic;
+            return binding;
         }
     }
 }

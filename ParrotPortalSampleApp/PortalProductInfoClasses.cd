@@ -1,67 +1,165 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.PortalResultOfArrayOfProductInformationAmSG9_SwV">
-    <Position X="0.5" Y="0.5" Width="3.25" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-      <Compartment Name="Events" Collapsed="true" />
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+  <Class Name="ParrotPortalSampleApp.WCF.ProductInfo.ProductInformation">
+    <Position X="0.5" Y="0.5" Width="5" />
+    <Members>
+      <Field Name="AlternativeProductsField" Hidden="true" />
+      <Field Name="CustomerPriceField" Hidden="true" />
+      <Field Name="CustomerPriceWithTaxField" Hidden="true" />
+      <Field Name="CustomerTaxAmountField" Hidden="true" />
+      <Field Name="DescriptionField" Hidden="true" />
+      <Field Name="DetailedDescriptionField" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Field Name="FuturePriceField" Hidden="true" />
+      <Field Name="IntermediatePacksField" Hidden="true" />
+      <Field Name="KitItemsField" Hidden="true" />
+      <Field Name="MainProductImageLinkField" Hidden="true" />
+      <Field Name="ProductBarCodeField" Hidden="true" />
+      <Field Name="ProductDocumentLinksField" Hidden="true" />
+      <Field Name="ProductImageLinksField" Hidden="true" />
+      <Field Name="PromotionInfoField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Field Name="PublishingCategoryField" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+      <Field Name="RetailPriceField" Hidden="true" />
+      <Field Name="StockCodeField" Hidden="true" />
+      <Field Name="StockIDField" Hidden="true" />
+      <Field Name="TotalWarehouseStockField" Hidden="true" />
+      <Field Name="WarehouseStockLevelsField" Hidden="true" />
+    </Members>
+    <AssociationLine Name="WarehouseStockLevels" Type="ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouseStockLevel">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-2.582" Y="0.445" Height="0.182" Width="4" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="PublishingCategory" Type="ParrotPortalSampleApp.WCF.ProductInfo.PortalPublishingCategory" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="2.713" />
+        <Point X="5.579" Y="2.713" />
+        <Point X="5.579" Y="2.91" />
+        <Point X="12.125" Y="2.91" />
+        <Point X="12.125" Y="1.796" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="AlternativeProducts" Type="ParrotPortalSampleApp.WCF.ProductInfo.RelatedProduct">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.037" Y="0.102" Height="0.182" Width="3.184" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAhAAAABAEAAAgIAIAAAA=</HashCode>
-      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+      <HashCode>AIBJEIgDGAAgCAgIAaAQAAKEkhAARACkIICSAAKACFA=</HashCode>
+      <FileName>Service References\WCF.ProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PublishingCategory" />
+      <Property Name="PromotionInfo" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="WarehouseStockLevels" />
+      <Property Name="IntermediatePacks" />
+      <Property Name="AlternativeProducts" />
+      <Property Name="KitItems" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouseStockLevel">
+    <Position X="7.5" Y="3.5" Width="4.5" />
+    <Members>
+      <Field Name="AmountField" Hidden="true" />
+      <Field Name="StockCodeField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Service References\WCF.ProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ProductInfo.PortalWarehouse">
+    <Position X="12.25" Y="3.5" Width="3.75" />
+    <Members>
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+      <Field Name="WarehouseCodeField" Hidden="true" />
+      <Field Name="WarehouseDescriptionField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAGAAAAAAAAABAQAAAAgAAAAAAkAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\WCF.ProductInfo\Reference.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.ProductInformation">
-    <Position X="4.5" Y="0.5" Width="4" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-      <Compartment Name="Events" Collapsed="true" />
-    </Compartments>
+  <Class Name="ParrotPortalSampleApp.WCF.ProductInfo.PortalPublishingCategory">
+    <Position X="10.25" Y="0.5" Width="5" />
+    <Members>
+      <Field Name="CategoryIDField" Hidden="true" />
+      <Field Name="CategoryNameField" Hidden="true" />
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AIBJAIgDCAAgCAgIAaAAAACAkhAAQACkIIASAAKACFA=</HashCode>
-      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+      <HashCode>AAAAAAACAAAAAAAAEAAAAAEAgCAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\WCF.ProductInfo\Reference.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.RelatedProduct">
-    <Position X="9.25" Y="0.5" Width="3.75" />
+  <Class Name="ParrotPortalSampleApp.WCF.ProductInfo.PromotionInformation">
+    <Position X="7" Y="0.5" Width="3" />
+    <Members>
+      <Field Name="AmountField" Hidden="true" />
+      <Field Name="DescriptionField" Hidden="true" />
+      <Field Name="EndDateField" Hidden="true" />
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Field Name="PromoTypeField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+      <Field Name="RequiredMinQuantityField" Hidden="true" />
+      <Field Name="StartDateField" Hidden="true" />
+      <Field Name="StockIDField" Hidden="true" />
+    </Members>
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-      <Compartment Name="Events" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AIABAAACAAAoAAAAAAAAAAAAgAAAQAAEAAAAAAKAAAA=</HashCode>
-      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.IntermediatePack">
-    <Position X="9.25" Y="3.5" Width="3.75" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-      <Compartment Name="Events" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAABAAACAQAAAAAABAAAIAAAgAEAAAAEAAAAAAKAAAA=</HashCode>
-      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="ParrotPortalSampleApp.WCF.ParrotProductInfo.PromotionInformation">
-    <Position X="0.5" Y="3.25" Width="3.75" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Methods" Collapsed="true" />
-      <Compartment Name="Events" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
       <HashCode>AIAEAAACAAAgAAARAAAACACggBAAAAAEACIAEEIACAA=</HashCode>
-      <FileName>Service References\WCF.ParrotProductInfo\Reference.cs</FileName>
+      <FileName>Service References\WCF.ProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ProductInfo.IntermediatePack">
+    <Position X="7.5" Y="5.25" Width="4" />
+    <Members>
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Field Name="PackBarCodeField" Hidden="true" />
+      <Field Name="PackQTYField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+      <Field Name="StockCodeField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAABAAACAQAAAAAABAAAIAAAgAEAAAAEAAAAAAKAAAA=</HashCode>
+      <FileName>Service References\WCF.ProductInfo\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ParrotPortalSampleApp.WCF.ProductInfo.RelatedProduct">
+    <Position X="7.5" Y="7.75" Width="3.5" />
+    <Members>
+      <Field Name="DescriptionField" Hidden="true" />
+      <Property Name="ExtensionData" Hidden="true" />
+      <Field Name="extensionDataField" Hidden="true" />
+      <Event Name="PropertyChanged" Hidden="true" />
+      <Method Name="RaisePropertyChanged" Hidden="true" />
+      <Field Name="RelatedStockCodeField" Hidden="true" />
+      <Field Name="StockCodeField" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AIABAAACAAAoAAAAAAAAAAAAgAAAQAAEAAAAAAKAAAA=</HashCode>
+      <FileName>Service References\WCF.ProductInfo\Reference.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
